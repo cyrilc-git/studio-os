@@ -1,0 +1,107 @@
+// ============================================
+// Mock data for Maintenance & Commercialisation
+// ============================================
+
+import type { ProjectHealth, SignalEvaluation } from "@/types";
+
+export const MOCK_PROJECTS: ProjectHealth[] = [
+  {
+    id: "mova",
+    name: "MOVA",
+    repo: "cyrilc-git/mova-recipe",
+    vercelProjectId: "prj_Duh7ZuohHC1ecXrbT9JK1i2JlyEP",
+    domain: "app.mova.food",
+    status: "healthy",
+    lastDeployAt: new Date(Date.now() - 6 * 3600000).toISOString(),
+    lastCheckAt: new Date(Date.now() - 30 * 60000).toISOString(),
+    uptimePercent: 99.8,
+    errorCount24h: 0,
+    buildStatus: "success",
+    metrics: { responseTime: 142, errorRate: 0, buildTime: 34 },
+  },
+  {
+    id: "heelio",
+    name: "Heelio Decode",
+    repo: "cyrilc-git/heelio-decode",
+    vercelProjectId: "prj_aAgHCwVARJvWTF7xVnGayBmOXeDU",
+    domain: "decode.heelio.io",
+    status: "healthy",
+    lastDeployAt: new Date(Date.now() - 48 * 3600000).toISOString(),
+    lastCheckAt: new Date(Date.now() - 30 * 60000).toISOString(),
+    uptimePercent: 99.9,
+    errorCount24h: 0,
+    buildStatus: "success",
+    metrics: { responseTime: 98, errorRate: 0, buildTime: 42 },
+  },
+  {
+    id: "therapilot",
+    name: "Therapilot",
+    repo: "cyrilc-git/therapilot-ai-copilot",
+    vercelProjectId: "",
+    domain: "",
+    status: "offline",
+    lastDeployAt: "",
+    lastCheckAt: new Date(Date.now() - 30 * 60000).toISOString(),
+    uptimePercent: 0,
+    errorCount24h: 0,
+    buildStatus: "failed",
+    metrics: { responseTime: 0, errorRate: 0, buildTime: 0 },
+  },
+];
+
+export const MOCK_EVALUATIONS: SignalEvaluation[] = [
+  {
+    id: "eval-1",
+    ideaId: "idea-1",
+    ideaTitle: "AI Meeting Notes → Action Items Tracker",
+    dimensions: [
+      { key: "market_demand", label: "Demande marché", description: "", score: 8, weight: 0.25, rationale: "Forte demande récurrente sur Reddit et ProductHunt" },
+      { key: "revenue_potential", label: "Potentiel revenu", description: "", score: 7, weight: 0.25, rationale: "B2B SaaS à $15-25/user/mois, TAM de $2B+" },
+      { key: "build_effort", label: "Effort de build", description: "", score: 6, weight: 0.2, rationale: "APIs transcription + LLM + intégrations PM tools" },
+      { key: "competition", label: "Concurrence", description: "", score: 5, weight: 0.15, rationale: "Otter.ai, Fireflies.ai existent mais chers et complexes" },
+      { key: "timing", label: "Timing", description: "", score: 9, weight: 0.15, rationale: "Post-COVID remote work, AI mature pour la transcription" },
+    ],
+    overallScore: 72,
+    roiRatio: 4.2,
+    verdict: "GO",
+    reasoning: "Marché validé avec forte willingness-to-pay. La niche 'lightweight pour petites équipes' est sous-servie. Le timing post-IA est parfait. Risque : intégrations multiples à maintenir.",
+    evaluatedAt: new Date(Date.now() - 3600000).toISOString(),
+    evaluatedBy: "ai",
+  },
+  {
+    id: "eval-2",
+    ideaId: "idea-2",
+    ideaTitle: "WhatsApp CRM pour Artisans/TPE",
+    dimensions: [
+      { key: "market_demand", label: "Demande marché", description: "", score: 9, weight: 0.25, rationale: "Tendance Google +340%, marché FR massif et sous-servi" },
+      { key: "revenue_potential", label: "Potentiel revenu", description: "", score: 8, weight: 0.25, rationale: "€29-49/mois, 3M+ d'artisans en France" },
+      { key: "build_effort", label: "Effort de build", description: "", score: 4, weight: 0.2, rationale: "WhatsApp Business API complexe, compliance RGPD" },
+      { key: "competition", label: "Concurrence", description: "", score: 7, weight: 0.15, rationale: "Peu de solutions FR natives, gros players pas adaptés aux TPE" },
+      { key: "timing", label: "Timing", description: "", score: 8, weight: 0.15, rationale: "WhatsApp Business API récemment ouverte aux petits devs" },
+    ],
+    overallScore: 74,
+    roiRatio: 3.2,
+    verdict: "WAIT",
+    reasoning: "Énorme potentiel marché FR mais effort technique important (WhatsApp API + compliance). Recommandation : commencer par un MVP message-only avant d'ajouter le CRM complet.",
+    evaluatedAt: new Date(Date.now() - 7200000).toISOString(),
+    evaluatedBy: "ai",
+  },
+  {
+    id: "eval-3",
+    ideaId: "idea-3",
+    ideaTitle: "Social Media Scheduler avec IA",
+    dimensions: [
+      { key: "market_demand", label: "Demande marché", description: "", score: 7, weight: 0.25, rationale: "Demande constante mais marché déjà bien compris" },
+      { key: "revenue_potential", label: "Potentiel revenu", description: "", score: 6, weight: 0.25, rationale: "Pricing compétitif nécessaire, $10-15/mois" },
+      { key: "build_effort", label: "Effort de build", description: "", score: 5, weight: 0.2, rationale: "Multi-platform APIs, content generation, scheduling" },
+      { key: "competition", label: "Concurrence", description: "", score: 3, weight: 0.15, rationale: "Buffer, Hootsuite, Later, Publer — marché saturé" },
+      { key: "timing", label: "Timing", description: "", score: 6, weight: 0.15, rationale: "IA ajoute un angle mais pas de disruption majeure" },
+    ],
+    overallScore: 56,
+    roiRatio: 3.0,
+    verdict: "NO",
+    reasoning: "Marché trop saturé avec des acteurs bien établis. L'angle IA est intéressant mais insuffisant pour différencier. Le ROI ne justifie pas l'effort pour un solo studio.",
+    evaluatedAt: new Date(Date.now() - 14400000).toISOString(),
+    evaluatedBy: "ai",
+  },
+];

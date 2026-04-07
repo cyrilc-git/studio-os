@@ -10,10 +10,12 @@ import {
   Megaphone,
   LayoutDashboard,
   Zap,
+  BarChart2,
 } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "Dashboard", path: "/", icon: LayoutDashboard },
+  { label: "Usage API", path: "/dashboard", icon: BarChart2, color: "#6366F1" },
   { label: "Radar", path: "/radar", icon: Radar, color: "#6366F1" },
   { label: "Signal", path: "/signal", icon: Signal, color: "#F59E0B" },
   { label: "Dev", path: "/dev", icon: Code2, color: "#10B981" },
